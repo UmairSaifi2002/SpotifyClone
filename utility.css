@@ -52,3 +52,9 @@
     background-color: #222;
 }
 scrollbar-color : #333 #222;
+
+@media (max-width: 900px){
+    .p-1{
+        padding: 0px;
+    }
+}
