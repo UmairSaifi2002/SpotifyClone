@@ -33,6 +33,10 @@ async function getsongs(folder) {
             songs.push(element.href.split(`/${currfolder}/`)[1])
         }
     }
+    // Play the First song
+    PlayMusic(songs[0])
+
+
     // console.log(songs);
     // return songs
     // this
@@ -264,19 +268,19 @@ async function main() {
     displayAlbums()
 
     // Add event listener to the volume track
-    document.querySelector('.volume>img').addEventListener('clcik', (e) => {
-        console.log(e.target);
+    document.querySelector('.volume').getElementsByTagName('img')[0].addEventListener('click', (e) => {
+        // console.log(e.target.src);
         if (e.target.src.includes('volume.svg')) {
             e.target.src = e.target.src.replace('volume.svg', 'mute.svg')
             currentSong.volume = 0
-            console.log('mute');
-            
+            // console.log('mute');      
+            document.querySelector('.range').getElementsByTagName('input')[0].value = 0      
         }        
         else {
             e.target.src = e.target.src.replace('mute.svg', 'volume.svg')
-            currentSong.volume = 10  
-            console.log('volume');
-            
+            currentSong.volume = 0.10  
+            // console.log('volume');           
+            document.querySelector('.range').getElementsByTagName('input')[0].value = 60 
         }
     })
 
